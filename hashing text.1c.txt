@@ -1,0 +1,16 @@
+Part 1: Hashing a Text File with OpenSSL
+
+cd /home/sec_admin/lab.support.files/
+cat letter_to_grandma.txt
+openssl sha256 letter_to_grandma.txt
+nano letter_to_grandma.txt
+change the first sentence from ‘Hi Grandma’ to ‘Hi Grandpa’
+After the change = <CONTROL+X> , ‘Y’ , <Enter>
+openssl sha256 letter_to_grandma.txt
+
+openssl sha512 letter_to_grandma.txt
+
+Part 2: Verifying Hashes
+
+cat sample.img_SHA256.sig
+sha256sum sample.img

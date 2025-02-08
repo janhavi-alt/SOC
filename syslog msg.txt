@@ -1,0 +1,33 @@
+7. Logging Syslog Messages to Remote Linux Server
+
+Step 1: Configuring the Syslog Server (server-syslog)
+
+sudo nano /etc/sysconfig/syslog
+sudo apt update
+sudo apt install rsyslog 
+
+sudo nano /etc/rsyslog.conf
+remove # following line
+module(load="imudp")  # UDP listener
+input(type="imudp" port="514")
+add line = *.debug    /var/log/messages
+
+
+sudo systemctl restart rsyslog
+sudo netstat -anu | grep 514
+
+Step 2: Configuring the Syslog Client (oer-host)
+
+sudo nano /etc/hosts
+add line = 10.10.10.1 server-syslog.domain.com server-syslog loghost
+
+sudo nano /etc/rsyslog.conf
+add line = *.debug @loghost
+
+sudo systemctl restart rsyslog
+
+Step 3: Testing the Configuration
+
+logger -p user.debug "Test message from client"
+sudo cat /var/log/messages | grep "Test message from client"
+

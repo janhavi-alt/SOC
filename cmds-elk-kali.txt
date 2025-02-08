@@ -1,0 +1,76 @@
+1.sudo apt-get update
+password :kali
+2.sudo apt-get upgrade
+3.sudo apt-get install default-jdk default-jre
+4.java -version
+5.update-alternatives --config java
+6.sudo nano /etc/environment
+set the path :
+JAVA_HOME="/usr/lib/jvm/java-23-openjdk-amd64/bin/java"
+#in case if the above cmd isnt working then to temporary set the path use this command because sudo nano isnt working :
+export JAVA_HOME=/usr/lib/jvm/java-23-openjdk-amd64/bin/java
+7.source /etc/environment
+8.sudo apt-get install apt-transport-https
+9.wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+10.echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
+11.sudo apt-get update 
+12.sudo apt-get install elasticsearch
+13.sudo systemctl daemon-reload
+14.sudo systemctl enable elasticsearch.service
+15.sudo systemctl start elasticsearch.service
+16.sudo systemctl status elasticsearch.service
+17.sudo nano /etc/elasticsearch/elasticsearch.yml
+network.host: 0.0.0.0
+discovery.seed_hosts:[]
+xpack.security.enabled: false
+18.sudo systemctl restart elasticsearch.service
+19.sudo nano /etc/elasticsearch/jvm.options
+edit and change to:
+-Xms512m
+-Xmx512m 
+20.curl -X GET "localhost:9200"
+21.ifconfig
+copy the inet 10.0.2.15 append :9200 to it (10.0.2.15:9200\) run this in the browser 
+22.sudo apt-get install logstash
+sudo systemctl start logstash
+sudo systemctl enable logstash
+sudo systemctl status logstash
+
+#kibana starts from here 
+
+23.sudo apt-get install kibana
+sudo systemctl start kibana
+sudo systemctl enable kibana
+sudo systemctl status kibana
+24.sudo nano /etc/kibana/kibana.yml
+make changes as:
+server.port:5601
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://localhost:9200"]
+25.sudo systemctl restart kibana
+
+#filebeat starts from here 
+26.sudo apt-get install filebeat
+27.sudo nano /etc/filebeat/filebeat.yml
+make changes as shown in the screen shots
+28.sudo filebeat setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["0.0.0.0:9200"]'
+29.sudo systemctl start filebeat
+30.sudo systemctl enable filebeat
+31.curl -X GET http://{10.0.2.15}:9200/_cat/indices?v
+32.In the browser run the following address:
+http://10.0.2.15:9200/_cat/indices?v
+http://10.0.2.15:5601
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+Examining Telnet and SSH in Wireshark
+
+Part 1: Examine a Telnet Session with Wireshark
+Part 2: Examine an SSH Session with Wireshark
+
+Required Resources
+CyberOps Workstation VM
+
+*** Part 1: Examining a Telnet Session with Wireshark
+You will use Wireshark to capture and view the transmitted data of a Telnet session.
+
+Step 1: Capture data.
+a. Start the CyberOps Workstation VM and log in with username analyst and password cyberops.
+
+b. Open a terminal window and start Wireshark. Press OK to continue after reading the warning message.
+
+[analyst@secOps analyst]$ sudo wireshark-gtk
+[sudo] password for analyst: cyberops
+
+** (wireshark-gtk:950): WARNING **: Couldn't connect to accessibility bus:
+Failed to connect to socket /tmp/dbus-REDRWOHelr: Connection refused
+Gtk-Message: GtkDialog mapped without a transient parent. This is
+discouraged.
+
+c. Start a Wireshark capture on the Loopback: lo interface.
+
+d. Open another terminal window. Start a Telnet session to the localhost. Enter username analyst and password cyberops when prompted. Note that it may take several minutes for the “connected to localhost” and login prompt to appear.
+write the following cmds:
+[analyst@secOps ~]$ sudo systemctl start telnet.socket
+[analyst@secOps ~]$ telnet localhost
+
+e. Stop the Wireshark capture after you have provided the user credentials.
+
+Step 2: Examine the Telnet session.
+a. Apply a filter that only displays Telnet-related traffic. Enter Telnet in the filter field and click Apply.
+
+b. Right-click one of the Telnet lines in the Packet list section of Wireshark, and from the drop-down list, select Follow TCP Stream.
+
+c. The Follow TCP Stream window displays the data for your Telnet session with the CyberOps Workstation VM. The entire session is displayed in plaintext, including your password. Notice that the username that you entered is displayed with duplicate characters. This is caused by the echo setting in Telnet to allow you to view the characters that you type on the screen.
+
+d. After you have finished reviewing your Telnet session in the Follow TCP Stream window, click Close.
+
+e. Type exit at the terminal to exit the Telnet session.
+
+[analyst@secOps ~]$ exit
+
+*** Part 2: Examine an SSH Session with Wireshark
+
+same steps for ssh also 
+just replace telnet with ssh localhost 
+
+
+
+

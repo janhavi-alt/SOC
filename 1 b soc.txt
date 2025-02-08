@@ -1,0 +1,18 @@
+1 b- Encrypting and Decrypting Data Using OpenSSL
+Go to cmd and perform the following cmds:
+(perform everything in cmd as administrator)
+
+preinstall:
+choco install openssl -y 
+refreshenv
+openssl version
+
+1. echo "This is a sample text" > input.txt
+2.Encryption: 
+openssl enc -aes-256-cbc -salt -pbkdf2 -in input.txt -out encrypted.enc -k password
+3.Decryption:
+openssl enc -aes-256-cbc -d -salt -pbkdf2 -in encrypted.enc -out output.txt -k password
+
+
+
+

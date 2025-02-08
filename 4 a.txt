@@ -1,0 +1,20 @@
+4 a. Using Wireshark to Examine HTTP and HTTPS Traffic
+
+1. Capturing Traffic
+Launch Wireshark and select the network interface you want to monitor (e.g., Ethernet or Wi-Fi).
+Click Start to begin capturing packets.
+
+2. Filtering HTTP Traffic
+Since HTTP traffic is unencrypted, you can easily filter and inspect it
+
+3. Filtering HTTPS Traffic
+HTTPS is encrypted, so direct inspection of its contents is not possible without decryption.
+Apply the Wireshark filter:
+tls
+or
+ssl
+This filter will show encrypted packets but not the plaintext data.
+setx SSLKEYLOGFILE C:\Users\Janhavi\Downloads\sslkeys.log
+echo %SSLKEYLOGFILE%
+start chrome
+filter and see the http 

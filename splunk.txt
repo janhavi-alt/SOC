@@ -1,0 +1,63 @@
+practical 6 -  INSTALL AND RUN SPLUNK ON LINUX
+
+1) sudo aptget update 
+2) sudo aptget upgrade 
+3) sudo apt-get install net-tools wget openssh-server
+4) sudo systemctl restart ssh
+5) sudo nano /etc/rsyslog.conf
+6) module(load="imuxsock")
+7) module(load="imklog")
+8) module(load="imudp")  input(type="imudp" port="514")
+9) module(load="imtcp") input(type="imtcp" port="514")
+11) sudo systemctl restart rsyslog
+
+if we get 
+$ sudo systemctl restart rsyslog
+Failed to restart rsyslog.service: Unit rsyslog.service not found.
+then use following command:
+$ sudo apt-get purge rsyslog
+$ sudo apt-get install rsyslog
+$ sudo systemctl restart rsyslog 
+                                                                 
+10)sudo systemctl status rsyslog
+11)sudo groupadd splunkdemo
+12)sudo useradd -d /opt/splunk -m -g splunk splunkdemo
+13) Now go to https://www.splunk.com/ . Register and Click on Free Splunk at top right of
+page. Click on Free Trials and Downloads page link. On the next screen Click on Get My Free Trial
+under Splunk Enterprise. Next Choose Linux and click on Download for .tgz. Stop the download and
+click
+14)Stop the download and click on Dowload via Command Line (wget) and copy the
+command.
+15)su -
+Password: 
+
+if u get su: Authentication failure error then
+write these command $ sudo passwd -S root
+root L output means the pass is locked
+u recreate password
+
+$ sudo passwd root
+
+16)su - splunkdemo
+if error come likes su: user splunkdemo does not exist or the user entry does not contain all the required fields
+command
+cat /etc/passwd | grep splunkdemo
+sudo groupadd splunk
+sudo useradd -d /opt/splunk -m -g splunk -s /bin/bash splunkdemo
+sudo passwd splunkdemo
+cat /etc/passwd | grep splunkdemo
+cat /etc/group | grep splunk
+
+17)su - splunkdemo
+18)paste the command of tgz file(cmd that start wget step 14 ) 
+19)tar xvzf splunk-9.4.0-6b4ebe426ca6-linux-amd64.tgz -C /opt (edit these command with your tgz file version)
+20)access root using su – (write root password (kali))
+21)chown -R splunkdemo: /opt/splunk/
+22)cd /opt/splunk/bin 
+23)./splunk start
+24) ./splunk start --accept-license
+after these we get "The Splunk web interface is at http://kali:8000"
+25)interface on http://kali:8000.
+go these link if your step is correct then get login screen else any error in your steps.
+
+

@@ -1,0 +1,55 @@
+3 a. Demonstrate the use of Snort and Firewall Rules
+
+Step-1-> Download snort application from https://snort.org/downloads from binaries section
+Snort_2_9_20_Installer.x64.exe
+
+Step-2-> Download rules tar file from the registered section snortrules-snapshot-29200.tar.gz.
+
+Step-3-> Install snort.exe file
+
+Step-4-> Unzip and Extract the snortrules-snapshot-29200.tar.gz file.
+
+Step-5->Copy Rules to Snort Directory
+Copy the rules and preproc_rules folders from the extracted archive and paste them into C:\Snort, replacing the existing ones.
+
+Step-6-> Download and install notepad++ from https://notepad-plus-plus.org/downloads/ and
+open the snort.conf file from C:\Snort\etc in the same.
+
+Step-7-> Search for blacklist from the snort folder in C:\Snort, open in notepad++, do save as and
+name it to whitelist.rules now you will have files with name blacklist.rules and whitelist.rules in the
+folder.
+
+Step-8-> Edit the config file in the following lines
+Open C:\Snort\etc\snort.conf in Notepad++.(see the lines in the manual)
+
+
+Step 9: Find the section between line 546 to 651.
+Replace all forward slashes (/) with backslashes (\) in the directory paths.
+
+Step-10-> Open local.rules from C:\Snort\rules in notepad++ and add the following lines of code in
+it.
+alert icmp any any -> any any (msg:"Testing ICMP"; sid:1000001;)
+alert tcp any any -> any any (msg:"Testing UDP"; sid:1000002;)
+alert udp any any -> any any (msg:"Testing TCP"; sid:1000003;)
+
+Step-11-> Open command line in the path C:\Snort\bin and run the command snort -W
+
+Step-12-> Run the command: snort -i 5 -c C:\Snort\etc\snort.conf -A console
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

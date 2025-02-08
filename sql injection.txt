@@ -1,0 +1,35 @@
+5.- Attacking a mySQL Database
+
+Part 1: Open Wireshark and load the PCAP file.
+Start the CyberOps Workstation VM.
+Click Applications > CyberOPS > Wireshark
+next go to File >open> /home/analyst/ > lab.support.files >  SQL_Lab.pcap
+
+Part 2: View the SQL Injection Attack. 
+right-click line 13 and select Follow > HTTP Stream.
+Find field, enter 1=1. Click Find Next.
+Clear display filter
+
+Part 3: The SQL Injection Attack continues...
+right-click line 19 and select Follow > HTTP Stream.
+Find field, enter 1=1. Click Find Next.
+Clear display filter
+
+Part 4: The SQL Injection Attack provides system information.
+right-click line 22 and select Follow > HTTP Stream.
+Find field, enter 1=1. Click Find Next.
+Clear display filter
+
+Part 5: The SQL Injection Attack and Table Information.
+right-click line 25 and select Follow > HTTP Stream.
+Find field, enter 1=1. Click Find Next.
+Clear display filter
+
+Part 6: The SQL Injection Attack Concludes.
+right-click line 28 and select Follow > HTTP Stream.
+Find field, enter 1=1. Click Find Next.
+
+Which user has the password hash of 8d3533d75ae2c3966d7e0d4fcc69216b?
+first search password on find after these visible then go to 
+https://crackstation.net/
+enter the password and hash the password

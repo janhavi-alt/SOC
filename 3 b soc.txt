@@ -1,0 +1,11 @@
+PRACTICAL 3 b : DEMONSTRATE EXTRACT AN EXECUTABLE FROM A PCAP
+
+Step-1-> Download packet capture file from : https://www.cloudshark.org/captures/a9472fbe700a
+export -> download file -> download the original file
+
+Step-2-> Open the packet capture file in Wireshark by dragging and dropping the capture file into
+the Wireshark interface.
+
+Step-3-> Click on File->Export Objects-> HTTP
+
+Step-4-> Select image/png and click on Save. Select Save Location.

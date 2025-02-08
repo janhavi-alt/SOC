@@ -1,0 +1,44 @@
+Encrypting and Decrypting Data Using a Hacker Tool
+
+Part 1: Create and Encrypt Files
+
+cd ~ 
+mkdir Zip-Files
+cd Zip-Files
+echo This is a sample text file > sample-1.txt 
+echo This is a sample text file > sample-2.txt 
+echo This is a sample text file > sample-3.txt
+ls
+
+Step 2: Zip and encrypt the text files.
+
+zip –e file-1.zip sample*
+enter a one-character password = B
+zip –e file-2.zip sample*
+enter a one-character password = R2
+zip –e file-3.zip sample*
+enter a one-character password = 0B1
+zip –e file-4.zip sample*
+enter a one-character password = Y0Da
+zip –e file-5.zip sample*
+enter a one-character password =  C-3P0
+ ls -l f*
+
+Attempt to open a zip using an incorrect password
+
+unzip file-1.zip
+enter wrong password
+
+Part 2: Recover Encrypted Zip File Passwords
+
+Step 1: Introduction to fcrackzip
+
+fcrackzip –h
+
+Step 2: Recovering Passwords using fcrackzip
+
+fcrackzip -vul 1-4 file-1.zip
+fcrackzip –vul 1-4 file-2.zip
+fcrackzip –vul 1-4 file-3.zip
+fcrackzip –vul 1-4 file-4.zip
+fcrackzip –vul 1-5 file-5.zip

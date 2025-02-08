@@ -1,0 +1,11 @@
+3 c. Demonstrate a practical for Exploring DNS Traffic
+
+Step-1-> Open Wireshark, select Wi-Fi or ethernet or LAN and click on Capture to capture the DNS Traffic
+
+Step-2-> Click start  (click on the shark fin)
+
+Step-3-> Search for dns in the search bar
+
+Step-4-> Search for some websites and check them on Wireshark
+
+Step-5-> Double click on that and open the DNS arrow and analyse it

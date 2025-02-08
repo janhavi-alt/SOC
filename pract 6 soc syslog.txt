@@ -1,0 +1,16 @@
+PRACTICAL 5: CREATE YOUR OWN SYSLOG SERVER (ubuntu)
+
+Step 1-> Run sudo apt-get install openssh-server command to install ssh
+
+Step 2-> Run sudo apt-get install net-tools to install net-tools
+
+Step 3-> Run sudo service rsyslog restart to restart rsyslog service
+
+Step 4-> Edit rsyslog config using sudo nano /etc/rsyslog.conf command and uncomment the lines
+module(load="imudp") input(type="imudp" port="514")
+module(load="imtcp") input(type="imtcp" port="514")
+Press Ctrl+X & Enter to save file
+
+Step 5-> Restart rsyslog service with sudo service rsyslog restart command
+
+Step 6-> Check status of rsyslog service with sudo service rsyslog status command
