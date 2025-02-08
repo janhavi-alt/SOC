@@ -1,4 +1,5 @@
 snort rules link - https://github.com/thereisnotime/Snort-Rules
+https://sourceforge.net/projects/snorty/files/snortrules-snapshot-2900.tar.gz/download
 1 a. Encrypting and Decrypting Data Using a Hacker Tool
 b. Encrypting and Decrypting Data Using OpenSSL
 c. Hashing a Text File with OpenSSL and Verifying Hashes
