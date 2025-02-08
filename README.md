@@ -1,3 +1,4 @@
+snort rules link - https://github.com/thereisnotime/Snort-Rules
 1 a. Encrypting and Decrypting Data Using a Hacker Tool
 b. Encrypting and Decrypting Data Using OpenSSL
 c. Hashing a Text File with OpenSSL and Verifying Hashes
